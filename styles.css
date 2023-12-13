@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.fighter-list {
+  display: flex;
+  list-style: none;
+}
+
+.avatar {
+  width: 64px;
+  height: 80px;
+  background: url('./street_fighter_sprites.png');
+}
+
+/* GOODS */
+#riu {
+  background-position: -68px 178px;
+}
+
+#ken {
+  background-position: -468px 278px;
+}
+
+#chun-li {
+  background-position: -568px 378px;
+}
+
+#ehonda {
+  background-position: -168px 278px;
+}
+
+#dhal-sim {
+  background-position: -68px 278px;
+}
+
+#guile {
+  background-position: -368px 278px;
+}
+
+#cammy {
+  background-position: -368px 378px;
+}
+
+/* BADS */
+#sagat {
+  background-position: -168px 178px;
+}
+
+#thunder-hawk {
+  background-position: -268px 178px;
+}
+
+#zangief {
+  background-position: -468px 178px;
+}
+
+#vega {
+  background-position: -368px 178px;
+}
+
+#blanka {
+  background-position: -268px 378px;
+}
+
+#balrog {
+  background-position: -168px 378px;
+}
+
+#bison {
+  background-position: -568px 278px;
+}
