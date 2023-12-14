@@ -1,4 +1,5 @@
 /** STEP 4: FLUID DYNAMIC SINUSOID */
+/*
 const container = document.querySelector("ul");
 const elements = document.querySelectorAll("li");
 
@@ -21,3 +22,4 @@ const iniFollowCursor = () => {
 };
 
 iniFollowCursor();
+*/

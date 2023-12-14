@@ -24,53 +24,45 @@ li {
 
 ul {
   --base-item-size: 56px;
-  height: var(--base-item-size);
-  display: flex;
-  align-items: flex-end;
-  list-style: none;
-
-  background-color: rgba(154, 212, 194, 0.3);
-}
-
-/** STEP 0: NO SPINUSOID */
-/*
-li {
-  --item-padding: 10px;
-
-  width: var(--base-item-size);
-  height: var(--base-item-size);
-  padding: var(--item-padding);
+  block-size: var(--base-item-size);
 
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+
+  list-style: none;
+  background-color: rgba(154, 212, 194, 0.3);
+}
+
+/** STEP 0: NO SINUSOID */
+/*
+li {
+  --item-padding: 10px;
+  block-size: var(--base-item-size);
 }
 
 li img {
-  max-height: calc(var(--base-item-size) - 20px);
+  block-size: 100%;
+  padding: var(--item-padding);
 }
 */
 
-/** STEP 1: SET SPINUSOID */
-/*
+/** STEP 1: SET SINUSOID */
 li {
   --item-padding: 10px;
   --grow: calc((cos(var(--item-angle, 180deg)) + 1) / 2 + 1);
   --item-size: calc(var(--base-item-size) * var(--grow, 1));
 
-  width: var(--item-size);
-  height: var(--item-size);
-  padding: var(--item-padding);
-
-  display: flex;
-  justify-content: center;
+  block-size: var(--item-size);
 }
 
 li img {
-  max-height: calc(var(--item-size) - 20px);
+  block-size: 100%;
+  padding: var(--item-padding);
 }
-*/
 
 /** STEP 4: FLUID DYNAMIC SINUSOID */
+/*
 li {
   --item-padding: 10px;
   --fluid-angle: calc(var(--item-angle, 180deg) - 45deg * var(--pX, 0));
@@ -78,19 +70,15 @@ li {
   --grow: calc((cos(var(--clamp-angle)) + 1) / 2 + 1);
   --item-size: calc(var(--base-item-size) * var(--grow, 1));
 
-  width: var(--item-size);
-  height: var(--item-size);
-  padding: var(--item-padding);
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  block-size: var(--item-size);
   transition: 20ms;
 }
 
 li img {
-  max-height: calc(var(--item-size) - 2 * var(--item-padding));
+  block-size: 100%;
+  padding: var(--item-padding);
 }
+*/
 
 /** STEP 2: STATIC SPINUSOID */
 /*
