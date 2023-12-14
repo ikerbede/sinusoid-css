@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  background-color: black;
 }
 
 main {
@@ -21,71 +22,148 @@ li {
   padding: 0;
 }
 
-.fighter-list {
+ul {
+  --base-item-size: 56px;
+  height: var(--base-item-size);
   display: flex;
+  align-items: flex-end;
   list-style: none;
+
+  background-color: rgba(154, 212, 194, 0.3);
 }
 
-.avatar {
-  width: 64px;
-  height: 80px;
-  background: url('./street_fighter_sprites.png');
+/** STEP 0: NO SPINUSOID */
+/*
+li {
+  --item-padding: 10px;
+
+  width: var(--base-item-size);
+  height: var(--base-item-size);
+  padding: var(--item-padding);
+
+  display: flex;
+  justify-content: center;
 }
 
-/* GOODS */
-#riu {
-  background-position: -68px 178px;
+li img {
+  max-height: calc(var(--base-item-size) - 20px);
+}
+*/
+
+/** STEP 1: SET SPINUSOID */
+/*
+li {
+  --item-padding: 10px;
+  --grow: calc((cos(var(--item-angle, 180deg)) + 1) / 2 + 1);
+  --item-size: calc(var(--base-item-size) * var(--grow, 1));
+
+  width: var(--item-size);
+  height: var(--item-size);
+  padding: var(--item-padding);
+
+  display: flex;
+  justify-content: center;
 }
 
-#ken {
-  background-position: -468px 278px;
+li img {
+  max-height: calc(var(--item-size) - 20px);
+}
+*/
+
+/** STEP 4: FLUID DYNAMIC SINUSOID */
+li {
+  --item-padding: 10px;
+  --fluid-angle: calc(var(--item-angle, 180deg) - 45deg * var(--pX, 0));
+  --clamp-angle: clamp(-180deg, var(--fluid-angle), 180deg);
+  --grow: calc((cos(var(--clamp-angle)) + 1) / 2 + 1);
+  --item-size: calc(var(--base-item-size) * var(--grow, 1));
+
+  width: var(--item-size);
+  height: var(--item-size);
+  padding: var(--item-padding);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: 20ms;
 }
 
-#chun-li {
-  background-position: -568px 378px;
+li img {
+  max-height: calc(var(--item-size) - 2 * var(--item-padding));
 }
 
-#ehonda {
-  background-position: -168px 278px;
+/** STEP 2: STATIC SPINUSOID */
+/*
+li:nth-of-type(3) {
+  --item-angle: -180deg;
 }
 
-#dhal-sim {
-  background-position: -68px 278px;
+li:nth-of-type(4) {
+  --item-angle: -135deg;
 }
 
-#guile {
-  background-position: -368px 278px;
+li:nth-of-type(5) {
+  --item-angle: -90deg;
 }
 
-#cammy {
-  background-position: -368px 378px;
+li:nth-of-type(6) {
+  --item-angle: -45deg;
 }
 
-/* BADS */
-#sagat {
-  background-position: -168px 178px;
+li:nth-of-type(7) {
+  --item-angle: 0deg;
 }
 
-#thunder-hawk {
-  background-position: -268px 178px;
+li:nth-of-type(8) {
+  --item-angle: 45deg;
 }
 
-#zangief {
-  background-position: -468px 178px;
+li:nth-of-type(9) {
+  --item-angle: 90deg;
 }
 
-#vega {
-  background-position: -368px 178px;
+li:nth-of-type(10) {
+  --item-angle: 135deg;
 }
 
-#blanka {
-  background-position: -268px 378px;
+li:nth-of-type(11) {
+  --item-angle: 180deg;
+}
+*/
+
+/** STEP 3: DYNAMIC SPINUSOID ON HOVER */
+li:has(+ li + li + li + li:hover) {
+  --item-angle: -180deg;
 }
 
-#balrog {
-  background-position: -168px 378px;
+li:has(+ li + li + li:hover) {
+  --item-angle: -135deg;
 }
 
-#bison {
-  background-position: -568px 278px;
+li:has(+ li + li:hover) {
+  --item-angle: -90deg;
+}
+
+li:has(+ li:hover) {
+  --item-angle: -45deg;
+}
+
+li:hover {
+  --item-angle: 0deg;
+}
+
+li:hover + li {
+  --item-angle: 45deg;
+}
+
+li:hover + li + li {
+  --item-angle: 90deg;
+}
+
+li:hover + li + li + li {
+  --item-angle: 135deg;
+}
+
+li:hover + li + li + li + li {
+  --item-angle: 180deg;
 }
